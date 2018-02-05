@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>网易云音乐爬虫 PHP版本 | Ahri&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="网易云音乐爬虫 - 爬取评论 - PHP1、拼接url123456789101112131415/*** 生成接口url*/function crypt_api($song_id, $offset)&amp;#123;    $url = &quot;http://music.163.com/weapi/v1/resource/comments/R_SO_4_&amp;#123;$song_id&amp;#125;/?csrf_t">
+<meta name="keywords" content="netease,php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网易云音乐爬虫 PHP版本">
+<meta property="og:url" content="https://kemi.moe/2017/07/31/neteasy_music_spider/index.html">
+<meta property="og:site_name" content="Ahri&#39;s Blog">
+<meta property="og:description" content="网易云音乐爬虫 - 爬取评论 - PHP1、拼接url123456789101112131415/*** 生成接口url*/function crypt_api($song_id, $offset)&amp;#123;    $url = &quot;http://music.163.com/weapi/v1/resource/comments/R_SO_4_&amp;#123;$song_id&amp;#125;/?csrf_t">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T05:51:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网易云音乐爬虫 PHP版本">
+<meta name="twitter:description" content="网易云音乐爬虫 - 爬取评论 - PHP1、拼接url123456789101112131415/*** 生成接口url*/function crypt_api($song_id, $offset)&amp;#123;    $url = &quot;http://music.163.com/weapi/v1/resource/comments/R_SO_4_&amp;#123;$song_id&amp;#125;/?csrf_t">
+  
+    <link rel="alternative" href="/atom.xml" title="Ahri&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars2.githubusercontent.com/u/6157554?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Ahri</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">阿狸的小部落</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/notes">笔记</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/shmilyin/" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Fuck-GFW/" style="font-size: 10px;">Fuck GFW</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/网易云音乐/" style="font-size: 10px;">netease</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/pandorabox/" style="font-size: 10px;">pandorabox</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">没有什么能够阻挡，你对自由的向往……</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Ahri</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://avatars2.githubusercontent.com/u/6157554?v=3&amp;s=460" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Ahri</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">阿狸的小部落</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/notes">笔记</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/shmilyin/" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-neteasy_music_spider" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/31/neteasy_music_spider/" class="article-date">
+  	<time datetime="2017-07-31T02:07:00.000Z" itemprop="datePublished">2017-07-31</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网易云音乐爬虫 PHP版本
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网易云音乐/">netease</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/notes/">notes</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="网易云音乐爬虫-爬取评论-PHP"><a href="#网易云音乐爬虫-爬取评论-PHP" class="headerlink" title="网易云音乐爬虫 - 爬取评论 - PHP"></a>网易云音乐爬虫 - 爬取评论 - PHP</h1><h4 id="1、拼接url"><a href="#1、拼接url" class="headerlink" title="1、拼接url"></a>1、拼接url</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">* 生成接口url</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">crypt_api</span><span class="params">($song_id, $offset)</span></span>&#123;</div><div class="line">    $url = <span class="string">"http://music.163.com/weapi/v1/resource/comments/R_SO_4_&#123;$song_id&#125;/?csrf_token="</span>;</div><div class="line">    $first_param = <span class="string">"&#123;rid:\"\", offset:\"&#123;$offset&#125;\", total:\"true\", limit:\"20\", csrf_token:\"\"&#125;"</span>; </div><div class="line">    $forth_param = <span class="string">"0CoJUm6Qyw8W8jud"</span>;</div><div class="line">    $params = get_params($first_param, $forth_param);</div><div class="line">    $encSecKey = get_encSecKey();</div><div class="line">    $data = <span class="keyword">array</span>(</div><div class="line">        <span class="string">"params"</span>=&gt; $params,</div><div class="line">        <span class="string">"encSecKey"</span>=&gt; $encSecKey</div><div class="line">    );</div><div class="line">    <span class="keyword">return</span> <span class="keyword">array</span>($url, $data);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2、生成接口的params参数"><a href="#2、生成接口的params参数" class="headerlink" title="2、生成接口的params参数"></a>2、生成接口的params参数</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">* 生成接口参数</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_params</span><span class="params">($first_param, $forth_param)</span></span>&#123;</div><div class="line">    $iv = <span class="string">"0102030405060708"</span>;</div><div class="line">    $first_key = $forth_param;</div><div class="line">    $second_key = <span class="string">'FFFFFFFFFFFFFFFF'</span>;</div><div class="line">    $encryptObj = <span class="keyword">new</span> MagicCrypt();</div><div class="line">    $h_encText = $encryptObj-&gt;encrypt($first_param,$first_key,$iv);</div><div class="line">	$h_encText = $encryptObj-&gt;encrypt($h_encText,$second_key,$iv);</div><div class="line">    <span class="keyword">return</span> $h_encText;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_encSecKey</span><span class="params">()</span></span>&#123;</div><div class="line">    $encSecKey = <span class="string">"257348aecb5e556c066de214e531faadd1c55d814f9be95fd06d6bff9f4c7a41f831f6394d5a3fd2e3881736d94a02ca919d952872e7d0a50ebfa1769a7a62d512f5f1ca21aec60bc3819a9c3ffca5eca9a0dba6d6f7249b06f5965ecfff3695b54e1c28f3f624750ed39e7de08fc8493242e26dbc4484a01c76f739e135637c"</span>;</div><div class="line">    <span class="keyword">return</span> $encSecKey;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="3、AES-加密解密"><a href="#3、AES-加密解密" class="headerlink" title="3、AES 加密解密"></a>3、AES 加密解密</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MagicCrypt</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">    * <span class="doctag">@param</span> $encryptStr 需要加密的字符串</span></div><div class="line"><span class="comment">    * <span class="doctag">@param</span> $encryptKey 加密的key</span></div><div class="line"><span class="comment">    * <span class="doctag">@param</span> $iv 向量，增加加密的安全性</span></div><div class="line"><span class="comment">    */</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">encrypt</span><span class="params">($encryptStr,$encryptKey,$iv)</span> </span>&#123;</div><div class="line">        $module = mcrypt_module_open(MCRYPT_RIJNDAEL_128, <span class="string">''</span>, MCRYPT_MODE_CBC, $iv);</div><div class="line">        mcrypt_generic_init($module, $encryptKey, $iv);</div><div class="line">        <span class="comment">//Padding</span></div><div class="line">        $block = mcrypt_get_block_size(MCRYPT_RIJNDAEL_128, MCRYPT_MODE_CBC);</div><div class="line">        $pad = $block - (strlen($encryptStr) % $block); <span class="comment">//Compute how many characters need to pad</span></div><div class="line">        $encryptStr .= str_repeat(chr($pad), $pad); <span class="comment">// After pad, the str length must be equal to block or its integer multiples</span></div><div class="line">        <span class="comment">//encrypt</span></div><div class="line">        $encrypted = mcrypt_generic($module, $encryptStr);</div><div class="line">        mcrypt_generic_deinit($module);</div><div class="line">        mcrypt_module_close($module);</div><div class="line">        <span class="keyword">return</span> base64_encode($encrypted);</div><div class="line">    &#125;</div><div class="line">     <span class="comment">/**</span></div><div class="line"><span class="comment">    * <span class="doctag">@param</span> $encryptStr 需要解密的字符串</span></div><div class="line"><span class="comment">    * <span class="doctag">@param</span> $encryptKey 加密时使用的key</span></div><div class="line"><span class="comment">    * <span class="doctag">@param</span> $iv 加密时使用的向量</span></div><div class="line"><span class="comment">    */</span></div><div class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">decrypt</span><span class="params">($encryptStr,$encryptKey,$iv)</span> </span>&#123;</div><div class="line">        $module = mcrypt_module_open(MCRYPT_RIJNDAEL_128, <span class="string">''</span>, MCRYPT_MODE_CBC, $iv);</div><div class="line">        mcrypt_generic_init($module, $encryptKey, $iv);</div><div class="line">        $encryptedData = base64_decode($encryptStr);</div><div class="line">        $encryptedData = mdecrypt_generic($module, $encryptedData);</div><div class="line">        <span class="keyword">return</span> $encryptedData;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4、curlPost函数"><a href="#4、curlPost函数" class="headerlink" title="4、curlPost函数"></a>4、curlPost函数</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">_curlPost</span><span class="params">($url, $curlPost, $cookie_str = <span class="string">''</span>, $header_ary = array<span class="params">()</span>)</span></span>&#123;</div><div class="line">    $curl = curl_init();</div><div class="line">    curl_setopt($curl, CURLOPT_URL, $url);</div><div class="line">    curl_setopt($curl, CURLOPT_HEADER, <span class="keyword">false</span>);</div><div class="line">	curl_setopt($curl, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</div><div class="line">    curl_setopt($curl, CURLOPT_POST, <span class="keyword">true</span>);</div><div class="line">    curl_setopt($curl, CURLOPT_POSTFIELDS, $curlPost);</div><div class="line">	<span class="keyword">if</span> (substr($url,<span class="number">0</span>,<span class="number">5</span>)==<span class="string">'https'</span>) &#123;</div><div class="line">        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, <span class="keyword">false</span>);</div><div class="line">        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, <span class="keyword">false</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> ($cookie_str) &#123;</div><div class="line">        curl_setopt($curl, CURLOPT_COOKIE, $cookie_str);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> ($header_ary) &#123;</div><div class="line">        curl_setopt($curl, CURLOPT_HTTPHEADER, $header_ary);</div><div class="line">    &#125;</div><div class="line">    $return_str = curl_exec($curl);</div><div class="line">    curl_close($curl);</div><div class="line">    <span class="keyword">return</span> $return_str;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="5、请求数据"><a href="#5、请求数据" class="headerlink" title="5、请求数据"></a>5、请求数据</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//http://music.163.com/#/song?id=32507038</span></div><div class="line">get_comment(<span class="number">32507038</span>);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment">* 获取评论信息</span></div><div class="line"><span class="comment">* <span class="doctag">@param</span> $song_id 歌曲id</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_comment</span><span class="params">($song_id)</span></span>&#123;</div><div class="line">    $offset = <span class="number">0</span>;</div><div class="line">    $has_more = <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">while</span> ($has_more) &#123;</div><div class="line">        $has_more = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">list</span>($url, $data) = crypt_api($song_id, $offset);</div><div class="line">        $headers = <span class="keyword">array</span>(</div><div class="line">            <span class="string">'Referer'</span>=&gt;<span class="string">'http://music.163.com/'</span>,</div><div class="line">            <span class="string">'Cookie'</span>=&gt; <span class="string">'appver=1.5.0.75771;MUSIC_U=e954e2600e0c1ecfadbd06b365a3950f2fbcf4e9ffcf7e2733a8dda4202263671b4513c5c9ddb66f1b44c7a29488a6fff4ade6dff45127b3e9fc49f25c8de500d8f960110ee0022abf122d59fa1ed6a2;'</span></div><div class="line">            );</div><div class="line">        $result = _curlPost($url,http_build_query($data),<span class="string">''</span>,$headers);</div><div class="line">        <span class="keyword">if</span> ($result) &#123;</div><div class="line">            $data = json_decode($result);</div><div class="line">            <span class="keyword">if</span> ($data) &#123;</div><div class="line">                <span class="keyword">if</span> ($data-&gt;code == <span class="number">200</span>) &#123;</div><div class="line">                    <span class="keyword">if</span> ($data-&gt;comments) &#123;</div><div class="line">                        $comments = json_decode(json_encode($data-&gt;comments),<span class="keyword">true</span>);</div><div class="line">                        <span class="comment">//保存评论信息</span></div><div class="line">                        save_comments($song_id,$comments);</div><div class="line">                    &#125;</div><div class="line">                    $has_more = $data-&gt;more == <span class="string">'true'</span>;</div><div class="line">                    <span class="comment">//跟get_params里面的limit参数一致</span></div><div class="line">                    $offset += <span class="number">20</span>;</div><div class="line">                &#125;<span class="keyword">else</span>&#123;</div><div class="line">                    handleError(<span class="string">"data['code']:$data[code]"</span>);	</div><div class="line">                &#125;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                handleError(<span class="string">"json_decode error"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            handleError(<span class="string">"_curlPost result:null"</span>);</div><div class="line">        &#125;</div><div class="line">        sleep(<span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>参考:</p>
+<ol>
+<li><a href="http://www.cnblogs.com/ygyg/p/5686258.html" target="_blank" rel="noopener">php实现AES/CBC/PKCS5Padding加密解密（又叫：对称加密）</a></li>
+<li><a href="https://github.com/wenhaoliang/netease-music-spider" target="_blank" rel="noopener">https://github.com/wenhaoliang/netease-music-spider</a></li>
+<li><a href="http://blog.csdn.net/Ciiiiiing/article/details/62434438" target="_blank" rel="noopener">http://blog.csdn.net/Ciiiiiing/article/details/62434438</a></li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/07/PandoraBox_ChinaDNS_Shadowsocks fuck_gfw/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PandoraBox 配合ChinaDNS,Shadowsocks实现智能翻墙</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="https://dn-gitseassl.qbox.me/jiathis/code/jia.js" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 Ahri
+    	</div>
+      	<div class="footer-right">
+      		<a href="https://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

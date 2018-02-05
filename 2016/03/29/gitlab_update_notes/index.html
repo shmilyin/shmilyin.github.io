@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Gitlab 源码安装版 升级笔记 | Ahri&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Gitlab 升级笔记 适用于使用源码安装的Gitlab GitLab Community Edition 8.3.2 fbb8b6e&amp;gt;  0. Backup12cd /home/git/gitlabsudo -u git -H bundle exec rake gitlab:backup:create RAILS_ENV=production 备份完成后会在/home/git/gitlab">
+<meta name="keywords" content="Gitlab">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gitlab 源码安装版 升级笔记">
+<meta property="og:url" content="https://kemi.moe/2016/03/29/gitlab_update_notes/index.html">
+<meta property="og:site_name" content="Ahri&#39;s Blog">
+<meta property="og:description" content="Gitlab 升级笔记 适用于使用源码安装的Gitlab GitLab Community Edition 8.3.2 fbb8b6e&amp;gt;  0. Backup12cd /home/git/gitlabsudo -u git -H bundle exec rake gitlab:backup:create RAILS_ENV=production 备份完成后会在/home/git/gitlab">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-05T03:30:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gitlab 源码安装版 升级笔记">
+<meta name="twitter:description" content="Gitlab 升级笔记 适用于使用源码安装的Gitlab GitLab Community Edition 8.3.2 fbb8b6e&amp;gt;  0. Backup12cd /home/git/gitlabsudo -u git -H bundle exec rake gitlab:backup:create RAILS_ENV=production 备份完成后会在/home/git/gitlab">
+  
+    <link rel="alternative" href="/atom.xml" title="Ahri&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars2.githubusercontent.com/u/6157554?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Ahri</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">阿狸的小部落</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/categories/notes">笔记</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/shmilyin/" title="github">github</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Fuck-GFW/" style="font-size: 10px;">Fuck GFW</a> <a href="/tags/Gitlab/" style="font-size: 10px;">Gitlab</a> <a href="/tags/网易云音乐/" style="font-size: 10px;">netease</a> <a href="/tags/openwrt/" style="font-size: 10px;">openwrt</a> <a href="/tags/pandorabox/" style="font-size: 10px;">pandorabox</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/shadowsocks/" style="font-size: 10px;">shadowsocks</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">没有什么能够阻挡，你对自由的向往……</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Ahri</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://avatars2.githubusercontent.com/u/6157554?v=3&amp;s=460" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Ahri</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">阿狸的小部落</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/categories/notes">笔记</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/shmilyin/" title="github">github</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-gitlab_update_notes" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/03/29/gitlab_update_notes/" class="article-date">
+  	<time datetime="2016-03-29T07:00:00.000Z" itemprop="datePublished">2016-03-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Gitlab 源码安装版 升级笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gitlab/">Gitlab</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/notes/">notes</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Gitlab-升级笔记"><a href="#Gitlab-升级笔记" class="headerlink" title="Gitlab 升级笔记"></a>Gitlab 升级笔记</h1><blockquote>
+<p>适用于使用源码安装的Gitlab</p>
+<p>GitLab Community Edition 8.3.2 fbb8b6e&gt;</p>
+</blockquote>
+<h4 id="0-Backup"><a href="#0-Backup" class="headerlink" title="0. Backup"></a>0. Backup</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd <span class="regexp">/home/</span>git/gitlab</div><div class="line">sudo -u git -H bundle exec rake <span class="string">gitlab:</span><span class="string">backup:</span>create RAILS_ENV=production</div></pre></td></tr></table></figure>
+<p>备份完成后会在<code>/home/git/gitlab/backup</code>文件夹下生成已时间戳命名的文件<code>1459217332_gitlab_backup.tar</code></p>
+<h4 id="1-Stop-server"><a href="#1-Stop-server" class="headerlink" title="1. Stop server"></a>1. Stop server</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo<span class="built_in"> service </span>gitlab stop</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="2-Run-GitLab-upgrade-tool"><a href="#2-Run-GitLab-upgrade-tool" class="headerlink" title="2.Run GitLab upgrade tool"></a>2.Run GitLab upgrade tool</h4><p>Please replace X.X.X with the <a href="https://packages.gitlab.com/gitlab/gitlab-ce" target="_blank" rel="noopener">latest GitLab release</a>.</p>
+<p>GitLab 7.9 adds <code>nodejs</code> as a dependency. GitLab 7.6 adds <code>libkrb5-dev</code> as a dependency (installed by default on Ubuntu and OSX). GitLab 7.2 adds <code>pkg-config</code> and <code>cmake</code> as dependency. Please check the dependencies in the <a href="https://gitlab.com/gitlab-org/gitlab-ce/blob/master/doc/install/installation.md#1-packages-dependencies" target="_blank" rel="noopener">installation guide</a>.</p>
+<figure class="highlight flix"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /home/git/gitlab</div><div class="line">sudo -u git -H ruby -Ilib -e 'require <span class="string">"gitlab/upgrader"</span>' -e '<span class="keyword">class</span> Gitlab::Upgrader' -e '<span class="function"><span class="keyword">def</span> <span class="title">latest_version_raw</span>' <span class="title">-e</span> '"<span class="title">vX</span>.<span class="title">X</span>.<span class="title">X</span>"' <span class="title">-e</span> '<span class="title">end</span>' <span class="title">-e</span> '<span class="title">end</span>' <span class="title">-e</span> '<span class="title">Gitlab</span></span>::Upgrader.new.execute'</div><div class="line"></div><div class="line"># to perform a non-interactive install (no user input required) you can add -y</div><div class="line"># sudo -u git -H ruby -Ilib -e 'require <span class="string">"gitlab/upgrader"</span>' -e '<span class="keyword">class</span> Gitlab::Upgrader' -e '<span class="function"><span class="keyword">def</span> <span class="title">latest_version_raw</span>' <span class="title">-e</span> '"<span class="title">vX</span>.<span class="title">X</span>.<span class="title">X</span>"' <span class="title">-e</span> '<span class="title">end</span>' <span class="title">-e</span> '<span class="title">end</span>' <span class="title">-e</span> '<span class="title">Gitlab</span></span>::Upgrader.new.execute' -- -y</div></pre></td></tr></table></figure>
+<p><em>小插曲：</em>执行命令时报错</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">from /home/git/gitlab/<span class="class"><span class="keyword">lib</span>/<span class="title">gitlab</span>/<span class="title">upgrader</span>.<span class="title">rb</span>:74:<span class="title">in</span> `<span class="title">upgrade</span>'</span></div><div class="line"></div><div class="line">    from /home/git/gitlab/<span class="class"><span class="keyword">lib</span>/<span class="title">gitlab</span>/<span class="title">upgrader</span>.<span class="title">rb</span>:22:<span class="title">in</span> `<span class="title">execute</span>'</span></div><div class="line"></div><div class="line">    from -<span class="symbol">e:</span><span class="number">7</span>:in <span class="string">`&lt;main&gt;'</span></div></pre></td></tr></table></figure>
+<p>解决办法</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Open /home/git/gitlab/<span class="class"><span class="keyword">lib</span>/<span class="title">gitlab</span>/<span class="title">upgrader</span>.<span class="title">rb</span> <span class="title">in</span> <span class="title">editor</span></span></div><div class="line">Replace all <span class="comment">#&#123;Gitlab.config.git.bin_path&#125; by git and save</span></div><div class="line">Run upgrader.rb <span class="keyword">as</span> usual</div></pre></td></tr></table></figure>
+<p>I have the same problem upgrading from 8.5.1 to 8.5.5. Replacing <code>Gitlab.config.git.bin_path</code> with <code>git</code> fixed it.<br>This is the search and replace command to run in vi: <code>%s/#{Gitlab.config.git.bin_path}/git/g</code></p>
+<h4 id="3-Start-application"><a href="#3-Start-application" class="headerlink" title="3. Start application"></a>3. Start application</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo<span class="built_in"> service </span>gitlab start</div><div class="line">sudo<span class="built_in"> service </span>nginx restart</div></pre></td></tr></table></figure>
+<h4 id="4-Check-application-status"><a href="#4-Check-application-status" class="headerlink" title="4. Check application status"></a>4. Check application status</h4><p>Check if GitLab and its dependencies are configured correctly:</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u git -H bundle exec rake gitlab:check <span class="attribute">RAILS_ENV</span>=production</div></pre></td></tr></table></figure>
+<p>If all items are green, then congratulations upgrade is complete!</p>
+<h4 id="5-Upgrade-GitLab-Shell"><a href="#5-Upgrade-GitLab-Shell" class="headerlink" title="5. Upgrade GitLab Shell"></a>5. Upgrade GitLab Shell</h4><p>GitLab Shell might be outdated, running the commands below ensures you’re using a compatible version:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /home/git/gitlab-<span class="keyword">shell</span><span class="bash"></span></div><div class="line"><span class="bash">sudo -u git -H git fetch</span></div><div class="line"><span class="bash">sudo -u git -H git checkout v`cat /home/git/gitlab/GITLAB_SHELL_VERSION`</span></div></pre></td></tr></table></figure>
+<h4 id="One-line-upgrade-command"><a href="#One-line-upgrade-command" class="headerlink" title="One line upgrade command"></a>One line upgrade command</h4><p>You’ve read through the entire guide and probably already did all the steps one by one.<br>Below is a one line command with step 1 to 5 for the next time you upgrade.<br>Please replace X.X.X with the <a href="https://packages.gitlab.com/gitlab/gitlab-ce" target="_blank" rel="noopener">latest GitLab release</a>.</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">cd /home/git/gitlab; <span class="string">\</span></div><div class="line">  sudo -u git -H bundle exec rake gitlab:backup:create RAILS_ENV=production; <span class="string">\</span></div><div class="line">  sudo service gitlab stop; <span class="string">\</span></div><div class="line">  sudo -u git -H ruby -Ilib -e <span class="string">'require "gitlab/upgrader"'</span> -e <span class="string">'class Gitlab::Upgrader'</span> -e <span class="string">'def latest_version_raw'</span> -e <span class="string">'"vX.X.X"'</span> -e <span class="string">'end'</span> -e <span class="string">'end'</span> -e <span class="string">'Gitlab::Upgrader.new.execute'</span> -- -y; <span class="string">\</span></div><div class="line">  cd /home/git/gitlab-shell; <span class="string">\</span></div><div class="line">  sudo -u git -H git fetch; <span class="string">\</span></div><div class="line">  sudo -u git -H git checkout v`cat /home/git/gitlab/GITLAB_SHELL_VERSION`; <span class="string">\</span></div><div class="line">  cd /home/git/gitlab; <span class="string">\</span></div><div class="line">  sudo service gitlab start; <span class="string">\</span></div><div class="line">  sudo service nginx restart; <span class="string">\</span></div><div class="line">  sudo -u git -H bundle exec rake gitlab:check RAILS_ENV=production</div></pre></td></tr></table></figure>
+<p>####Note:<br>阿里云服务器ruby源不稳定。换国内的源</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">gem sources --<span class="built_in">add</span> http<span class="variable">s:</span>//<span class="keyword">ruby</span>.taobao.org/ --<span class="built_in">remove</span> http<span class="variable">s:</span>//rubygems.org/</div><div class="line">gem sources -<span class="keyword">l</span></div><div class="line"># 请确保只有 <span class="keyword">ruby</span>.taobao.org</div><div class="line">gem install rails</div></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">sudo</span> -u git <span class="keyword">bundle </span>install</div></pre></td></tr></table></figure>
+<p>安装完成之后 <code>update init script</code></p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rm /etc/init.d/gitlab</div><div class="line">sudo cp <span class="class"><span class="keyword">lib</span>/<span class="title">support</span>/<span class="title">init</span>.<span class="title">d</span>/<span class="title">gitlab</span> /<span class="title">etc</span>/<span class="title">init</span>.<span class="title">d</span>/<span class="title">gitlab</span></span></div></pre></td></tr></table></figure>
+<p>升级是由于是从7.x 到8.x 样式变化很大，所以执行完后样式错乱。后来找了些文档才发现要重新生产asset文件。</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo -u git -H bundle exec rake <span class="string">assets:</span>clean <span class="string">assets:</span>precompile <span class="string">cache:</span>clear RAILS_ENV=production</div></pre></td></tr></table></figure>
+<p>重启</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">service gitlab start</div><div class="line">service nginx restart</div></pre></td></tr></table></figure>
+<p>Done!</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/07/PandoraBox_ChinaDNS_Shadowsocks fuck_gfw/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          PandoraBox 配合ChinaDNS,Shadowsocks实现智能翻墙
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="https://dn-gitseassl.qbox.me/jiathis/code/jia.js" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 Ahri
+    	</div>
+      	<div class="footer-right">
+      		<a href="https://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
