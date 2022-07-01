@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Wireguard's AllowedIPs calculator</title>
+	<script src="wireguard/wasm_exec.js"></script>
+	<script src="wireguard/wireguard.js"></script>
+</head>
+<body>
+	<h1 class="title">
+		Wireguard's AllowedIPs calculator
+	</h1>
+	<main>
+		<article>
+			<p>As you possibly know Wireguard hasn’t something like “DisallowedIPs” parameter
+				to exclude some networks from allowed ones. Of course technically AllowedIPs is enough,
+				but I am tired to calculate it by hand, so created this simple calculator:
+			</p>
+
+		<style>
+			#calculator{
+				display:grid;
+				grid-template-columns:fit-content(0)auto;
+				gap:.5rem
+			}
+			#calculate-button{
+				grid-column:2
+			}
+			#use-api-wrapper{
+				grid-column:2
+			}
+			#final-allowed-ips{
+				grid-column:1/3;
+				margin-top:.5rem;
+				margin-bottom:0
+			}
+		</style>
+		<form id="calculator">
+			<label for="allowed-ips">AllowedIPs:</label>
+			<input id="allowed-ips" type="text" placeholder="0.0.0.0/0">
+			<label for="disallowed-ips">DisallowedIPs:</label>
+			<input id="disallowed-ips" type="text" placeholder="192.168.1.0/24">
+			<div id="use-api-wrapper" style="display: none;">
+				<input id="use-api" type="checkbox" onclick="document.getElementById(&#39;calculate-button&#39;).disabled=!1">
+				<label for="use-api">Use API instead of WASM</label>
+			</div>
+			<input type="submit" id="calculate-button" value="Calculate">
+			<div hidden="" id="final-allowed-ips" class="alert">AllowedIPs = </div>
+		</form>
+		<p><strong>Source From:</strong> <a href="https://krasovs.ky/">https://krasovs.ky/</a></p>
+		</article>
+	</main>
+</body>
+
+</html>
