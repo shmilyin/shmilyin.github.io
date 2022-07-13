@@ -6,6 +6,42 @@
 	<title>Wireguard's AllowedIPs calculator</title>
 	<script src="wireguard/wasm_exec.js"></script>
 	<script src="wireguard/wireguard.js"></script>
+	<style>
+		#calculator{
+			display:grid;
+			grid-template-columns:fit-content(0)auto;
+			gap:.5rem
+		}
+		#calculate-button{
+			grid-column:2
+		}
+		#use-api-wrapper{
+			grid-column:2
+		}
+		#final-allowed-ips{
+			grid-column:1/3;
+			margin-top:.5rem;
+			margin-bottom:0
+		}
+		.alert-success {
+		    background: #dbf1d1;
+		    color: #22600c;
+		    border-color: #dbebbe;
+		    padding: 0.5rem;
+		    border: 1px solid transparent;
+			margin-bottom: 1rem;
+		}
+		body {
+			max-width: 720px;
+		    margin: 0 auto;
+		    padding: 1rem;
+		}
+		article{
+			margin: 0 auto;
+		    max-width: 720px;
+		    line-height: 1.3;
+		}
+	</style>
 </head>
 <body>
 	<h1 class="title">
@@ -18,32 +54,7 @@
 				but I am tired to calculate it by hand, so created this simple calculator:
 			</p>
 
-		<style>
-			#calculator{
-				display:grid;
-				grid-template-columns:fit-content(0)auto;
-				gap:.5rem
-			}
-			#calculate-button{
-				grid-column:2
-			}
-			#use-api-wrapper{
-				grid-column:2
-			}
-			#final-allowed-ips{
-				grid-column:1/3;
-				margin-top:.5rem;
-				margin-bottom:0
-			}
-			.alert-success {
-			    background: #dbf1d1;
-			    color: #22600c;
-			    border-color: #dbebbe;
-			    padding: 0.5rem;
-    		            border: 1px solid transparent;
-    			    margin-bottom: 1rem;
-			}
-		</style>
+
 		<form id="calculator">
 			<label for="allowed-ips">AllowedIPs:</label>
 			<input id="allowed-ips" type="text" placeholder="0.0.0.0/0">
