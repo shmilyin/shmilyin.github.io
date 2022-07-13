@@ -7,7 +7,7 @@
     }
 
     const go = new Go();
-    const {instance} = await WebAssembly.instantiateStreaming(fetch("/wireguard.wasm"), go.importObject)
+    const {instance} = await WebAssembly.instantiateStreaming(fetch("wireguard/wireguard.wasm"), go.importObject)
     document.getElementById("calculate-button").disabled = false;
     await go.run(instance)
 })()
